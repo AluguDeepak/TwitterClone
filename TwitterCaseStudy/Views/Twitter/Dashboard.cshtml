@@ -1,0 +1,47 @@
+﻿@model List<Tweet>
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<style>
+    input{
+        max-width:auto;
+        float:inline-end;
+    }
+    .start{
+        text-align:center;
+    }
+    #sidepanel{
+        float:right;
+        margin:0px;
+    }
+</style>
+<h1>Welcome @ViewBag.fullname</h1>
+@using (Html.BeginForm("PostTweet","Twitter","POST"))
+{
+    <div class="form-group" >
+        <label>What are you doing?</label><br />
+        <textarea maxlength="140" rows="3" cols="70" name="message" required></textarea><br />
+        <input type="submit" value="Update" class="btn btn-primary"/>
+    </div>
+}
+<br />
+<h2>Tweets</h2>
+<table border="1" class="border table-active">
+    @foreach(var i in Model)
+    {
+                <tr>
+                    <td>
+                        <pre class="text-primary font-weight-bolder">@i.Person.FullName           @i.Message               @i.Created</pre>
+                    </td>
+                </tr>
+    }
+</table>
+<div id="sidepanel" class="form-group">
+    <input type="search" placeholder="search person"/><br />
+    <label> Tweets</label><br />
+    <label>Following</label><br />
+    <label>Followers</label>
+</div>
+
+
