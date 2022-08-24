@@ -16,6 +16,7 @@ namespace TwitterCaseStudy.Models
         [Required(ErrorMessage = "Enter the message")]
         [MaxLength(140, ErrorMessage = "Message should be 140 characters only")]
         public string Message { set; get; }
+        public string Message2{set; get;}
         [Required]
         [DataType(DataType.Date)]
         public DateTime Created { set; get; }
